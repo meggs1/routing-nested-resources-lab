@@ -44,6 +44,14 @@ class ArtistsController < ApplicationController
     redirect_to artists_path
   end
 
+  def song_index
+    if params[:artist_id]
+      @artist = Song.find(params[:artist_id]).artist
+    else
+      redirect_to artists_path
+    end
+  end
+
   private
 
   def artist_params
